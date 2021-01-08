@@ -1,2 +1,3 @@
-# chickoffee
+# Chickoffee
+
 Chickoffee game.
