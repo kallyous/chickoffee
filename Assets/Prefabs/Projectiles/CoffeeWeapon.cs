@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoffeeWeapon : MonoBehaviour {
 
+	public CharacterController2D controller;
 	public Transform firePoint;
 	public GameObject bulletPrefab;
 	public Camera cam;
@@ -18,6 +19,12 @@ public class CoffeeWeapon : MonoBehaviour {
 
 		// Calcula vetor que descreve a direção que sai do firePoint para o mouse (Valei-me Geometria Analítica!!).
 		Vector2 aimDir = mousePosition - firePoint.position;
+		
+		// Inverte x se estiver olhando para esquerda
+		if (!controller.m_FacingRight)
+		{
+			aimDir.x = aimDir.x * -1;
+		}
 
 		// Usa arco-tangente pra calcular o angulo descrito pelo vetor direção, para girar o firePoint.
 		float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg; // Sim, é (y, x) sabe Deus pq !?
