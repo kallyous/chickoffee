@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -22,8 +23,7 @@ public class Player : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            print("O pinto foi abatido! T_T");
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -35,5 +35,11 @@ public class Player : MonoBehaviour
             nextHarmTime = Time.time + harmInterval;
             print("Pinto ferido! " + currentHealth + " HP");
         }
+    }
+
+    public void Die()
+    {
+        print("O pinto foi abatido! T_T");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
