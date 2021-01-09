@@ -23,14 +23,6 @@ public class Bullet : MonoBehaviour {
 			enemy.TakeDamage(damage);
 		}
 
-		// Instantiate(impactEffect, transform.position, transform.rotation);
-
-        // GameObject obj = hitInfo.gameObject;
-		// if (obj != null)
-		// {
-		// 	print(obj.name);
-		// }
-
 		Destroy(gameObject);
 	}
 	
