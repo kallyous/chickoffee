@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour {
 			print(obj.name);
 		}
 
-		Destroy(gameObject);
+		// Destroy(gameObject);
 	}
 	
 }
