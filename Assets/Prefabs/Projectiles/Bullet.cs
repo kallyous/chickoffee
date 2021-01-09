@@ -17,21 +17,21 @@ public class Bullet : MonoBehaviour {
 	// Interno do Unity, dispara quando algo colide com um IsTrigger.
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
-		// Enemy enemy = hitInfo.GetComponent<Enemy>();
-		// if (enemy != null)
-		// {
-		// 	enemy.TakeDamage(damage);
-		// }
+		Enemy enemy = hitInfo.GetComponent<Enemy>();
+		if (enemy != null)
+		{
+			enemy.TakeDamage(damage);
+		}
 
 		// Instantiate(impactEffect, transform.position, transform.rotation);
 
-        GameObject obj = hitInfo.gameObject;
-		if (obj != null)
-		{
-			print(obj.name);
-		}
+        // GameObject obj = hitInfo.gameObject;
+		// if (obj != null)
+		// {
+		// 	print(obj.name);
+		// }
 
-		// Destroy(gameObject);
+		Destroy(gameObject);
 	}
 	
 }
