@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6833013977923316408}
   - component: {fileID: 912929386}
   - component: {fileID: 7751710520894023416}
+  - component: {fileID: 4640215714980346444}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -249,6 +250,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1550581098955266919, guid: d7e6999144d194df5b52593a7919d0d9,
     type: 3}
   cam: {fileID: 0}
+--- !u!114 &4640215714980346444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833013977923316415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4e3cb118d2c273387c8d90caaebe4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
 --- !u!1 &6833013978655595976
 GameObject:
   m_ObjectHideFlags: 0
