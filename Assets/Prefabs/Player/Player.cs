@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator DamageAnimation()
