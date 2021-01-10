@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public float harmInterval = 0.5f;
     private float nextHarm = 0f;
 
+    public int damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
