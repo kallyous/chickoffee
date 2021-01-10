@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public HealthBar healthBar;
     public int maxHealth = 3;
     private int currentHealth;
 
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if (healthBar)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +36,10 @@ public class Player : MonoBehaviour
         if (Time.time >= nextHarmTime)
         {
             currentHealth -= damage;
+            if (healthBar)
+            {
+                healthBar.SetHealth(currentHealth);
+            }
             nextHarmTime = Time.time + harmInterval;
             StartCoroutine(DamageAnimation());
         }
