@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1628501569720243575}
   - component: {fileID: 1628501569720243574}
   - component: {fileID: 1628501569720243573}
+  - component: {fileID: 9038757055508807442}
   - component: {fileID: 1628501569720243572}
   - component: {fileID: 4273759803263907635}
   - component: {fileID: 1694065581143351550}
@@ -100,7 +101,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 0.021073949
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -109,6 +110,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &9038757055508807442
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628501569720243563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bc88e202a2ab2ce528be214a9168d642, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07, y: -0.08}
+  m_Size: {x: 0.33, y: 0.6493206}
+  m_Direction: 0
 --- !u!70 &1628501569720243572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,11 +136,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 0.1
   m_Material: {fileID: 6200000, guid: 91bc4afde838867b6912c34c4772613b, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.07, y: -0.08}
-  m_Size: {x: 0.33216792, y: 0.6493206}
+  m_Size: {x: 0.35397145, y: 0.6713202}
   m_Direction: 0
 --- !u!114 &4273759803263907635
 MonoBehaviour:
