@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    Rigidbody2D rbody;
+    public float moveSpeed = 10f;
+    public float movingDir = 0f; // left -1  right 1
+    public bool isMoving = false;
+
     public int maxHealth = 3;
     private int currentHealth;
 
     public float attackRange = 1f;
-    public float moveSpeed = 10f;
-	public bool isFlipped = false;
+    public bool isFlipped = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        rbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,6 +28,14 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (isMoving)
+        {
+            rbody.velocity = new Vector2(moveSpeed * movingDir, rbody.velocity.y);
         }
     }
 

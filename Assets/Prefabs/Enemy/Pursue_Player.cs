@@ -7,16 +7,17 @@ public class Pursue_Player : StateMachineBehaviour
     Transform player;
     Rigidbody2D rb;
     Enemy enemy;
-    Enemy_Rat rat;
-    float speed;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Prepara referências
        player = GameObject.FindGameObjectWithTag("Player").transform;
        rb = animator.GetComponent<Rigidbody2D>();
        enemy = animator.GetComponent<Enemy>();
-       speed = enemy.moveSpeed;
+       // Seta componente pra mover
+       enemy.isMoving = true;
+       enemy.movingDir = 0f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,6 +28,16 @@ public class Pursue_Player : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
         */
+
+        // Atualiza informação sobre posição do jogador
+        if (rb.position.x < player.position.x)
+        {
+            enemy.movingDir = 1f; // Andando para a direita
+        }
+        else
+        {
+            enemy.movingDir = -1f; // Andando para a esquerda
+        }
 
         if (Vector2.Distance(player.position, rb.position) <= enemy.attackRange)
 		{
