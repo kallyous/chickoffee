@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 3;
     private int currentHealth;
 
+    public float attackRange = 1f;
     public float moveSpeed = 10f;
 	public bool isFlipped = false;
 

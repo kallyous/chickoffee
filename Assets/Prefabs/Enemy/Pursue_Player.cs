@@ -5,24 +5,38 @@ using UnityEngine;
 public class Pursue_Player : StateMachineBehaviour
 {
     Transform player;
+    Rigidbody2D rb;
+    Enemy enemy;
+    Enemy_Rat rat;
+    float speed;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        player = GameObject.FindGameObjectWithTag("Player").transform;
+       rb = animator.GetComponent<Rigidbody2D>();
+       enemy = animator.GetComponent<Enemy>();
+       speed = enemy.moveSpeed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Vector2 target = new Vector2(player.position.x, rb.position.y);
+        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+
+        if (Vector2.Distance(player.position, rb.position) <= enemy.attackRange)
+		{
+			animator.SetTrigger("Attack");
+		}
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       animator.ResetTrigger("Attack");
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
