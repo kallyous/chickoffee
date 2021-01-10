@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public float attackRange = 1f;
     public bool isFlipped = false;
 
+    public float harmInterval = 0.5f;
+    private float nextHarm = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +63,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        currentHealth -= dmg;
+        if (Time.time >= nextHarm)
+        {
+            currentHealth -= dmg;
+            nextHarm = Time.time + harmInterval;
+            StartCoroutine(DamageAnimation());
+        }
     }
 
     void Die()
@@ -68,4 +76,30 @@ public class Enemy : MonoBehaviour
         print(gameObject.name + " died.");
         Destroy(gameObject);
     }
+
+    IEnumerator DamageAnimation()
+	{
+		SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
+
+		for (int i = 0; i < 2; i++)
+		{
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 0;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.05f);
+
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 1;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.05f);
+		}
+	}
 }
