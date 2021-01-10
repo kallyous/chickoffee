@@ -39,6 +39,8 @@ public class Pursue_Player : StateMachineBehaviour
             enemy.movingDir = -1f; // Andando para a esquerda
         }
 
+        enemy.LookAtPlayer(player);
+
         if (Vector2.Distance(player.position, rb.position) <= enemy.attackRange)
 		{
 			animator.SetTrigger("Attack");
@@ -49,6 +51,9 @@ public class Pursue_Player : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        animator.ResetTrigger("Attack");
+       enemy.isMoving = false;
+       enemy.movingDir = 0f;
+       rb.velocity = new Vector2(0f, rb.velocity.y);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
