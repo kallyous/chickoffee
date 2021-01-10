@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour {
 			Enemy enemy = hitInfo.GetComponent<Enemy>();
 			if (enemy != null)
 			{
+				GetComponent<AudioSource>().Play();
 				enemy.TakeDamage(damage);
 				nextHarm = Time.time + harmCooldown;
 			}

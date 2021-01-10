@@ -54,6 +54,7 @@ public class CoffeeWeapon : MonoBehaviour {
 
 	void Shoot ()
 	{
+		firePoint.GetComponent<AudioSource>().Play();
 		Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 	}
 }

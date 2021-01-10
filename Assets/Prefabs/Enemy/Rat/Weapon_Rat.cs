@@ -16,6 +16,7 @@ public class Weapon_Rat : MonoBehaviour
         Player player = hitInfo.GetComponent<Player>();
 		if (player != null)
         {
+            GetComponent<AudioSource>().Play();
             player.TakeDamage(self.damage);
         }
 	}
