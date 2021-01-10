@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.044105187
+  m_Mass: 0.015918713
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.5
@@ -150,9 +150,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06, y: 0}
   serializedVersion: 2
-  m_Radius: 0.11848678
+  m_Radius: 0.07118345
 --- !u!58 &1550581098955266920
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,9 +166,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06, y: 0}
   serializedVersion: 2
-  m_Radius: 0.11848678
+  m_Radius: 0.07118345
 --- !u!114 &151446423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +184,5 @@ MonoBehaviour:
   speed: 20
   damage: 1
   rb: {fileID: 1550581098955266921}
+  duration: 1
+  harmCooldown: 0.6
