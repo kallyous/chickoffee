@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public HealthBar healthBar;
     public int maxHealth = 10;
-    private int currentHealth;
+    public int currentHealth;
 
     public float harmInterval = 0.5f;
     private float nextHarmTime;

@@ -11,10 +11,12 @@ public class Death_Zone : MonoBehaviour
 		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (player != null)
 		{
+			player.currentHealth = 0;
 			player.Die();
 		}
 		if (enemy != null)
 		{
+			enemy.currentHealth = 0;
 			enemy.Die();
 		}
 	}

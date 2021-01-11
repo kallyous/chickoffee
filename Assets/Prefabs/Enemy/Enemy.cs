@@ -9,13 +9,13 @@ public class Enemy : MonoBehaviour
     public float movingDir = 0f; // left -1  right 1
     public bool isMoving = false;
 
-    public int maxHealth = 3;
-    private int currentHealth;
+    public int maxHealth = 2;
+    public int currentHealth;
 
     public float attackRange = 1f;
     public bool isFlipped = false;
 
-    public float harmInterval = 0.2f;
+    public float harmInterval = 0.15f;
     private float nextHarm = 0f;
 
     public int damage = 1;
