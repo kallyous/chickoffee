@@ -8,9 +8,14 @@ public class Death_Zone : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
 		Player player = hitInfo.GetComponent<Player>();
+		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (player != null)
 		{
-			player.TakeDamage(9999);
+			player.Die();
+		}
+		if (enemy != null)
+		{
+			enemy.Die();
 		}
 	}
 }
