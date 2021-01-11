@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (animator.GetBool("Dead"))
+		{
+			runSpeed = 0;
+		}
+
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
 		animator.SetFloat("MoveSpeed", Mathf.Abs(horizontalMove));
