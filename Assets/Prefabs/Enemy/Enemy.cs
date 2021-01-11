@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         print(gameObject.name + " died.");
         Destroy(gameObject);
