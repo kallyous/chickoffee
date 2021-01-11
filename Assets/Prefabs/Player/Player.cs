@@ -17,9 +17,14 @@ public class Player : MonoBehaviour
     public AudioPlayer musicVictory;
     
     Animator animator;
+
     float deathTime;
     float deathWait = 7f;
     bool dead = false;
+
+    float victoryTime;
+    float victoryWait = 10f;
+    bool won = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +48,18 @@ public class Player : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
         }
+        if (won && Time.time > victoryTime + victoryWait) {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void Win()
+    {
+        won = true;
+        animator.SetBool("Victory", true);
+        musicBackground.Stop();
+        musicVictory.Play();
+        victoryTime = Time.time;
     }
 
     public void TakeDamage(int damage)
