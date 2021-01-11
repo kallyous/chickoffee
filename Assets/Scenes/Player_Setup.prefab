@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005326772532223547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.88, y: 0, z: -41.742485}
+  m_LocalPosition: {x: 91.36243, y: 12.247383, z: -41.742485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5005326772914455507}
@@ -672,6 +672,11 @@ PrefabInstance:
       propertyPath: musicVictory
       value: 
       objectReference: {fileID: 9047706751442028263}
+    - target: {fileID: 4640215714980346444, guid: af0b1087eb88d2e95b52361bb5c19ed4,
+        type: 3}
+      propertyPath: currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4640215714980346444, guid: af0b1087eb88d2e95b52361bb5c19ed4,
         type: 3}
       propertyPath: musicBackground
