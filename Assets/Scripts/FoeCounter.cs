@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FoeCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Player player;
 
     // Update is called once per frame
     void Update()
     {
-        print("Restam " + transform.childCount);
+        if (transform.childCount <= 0) 
+        {
+            print("Todos mortos.");
+            player.Win();
+            Destroy(gameObject);
+        }
     }
 }

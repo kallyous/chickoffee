@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public HealthBar healthBar;
-    public int maxHealth = 3;
+    public int maxHealth = 10;
     private int currentHealth;
 
     public float harmInterval = 0.5f;
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour
     Animator animator;
 
     float deathTime;
-    float deathWait = 7f;
+    float deathWait = 6f;
     bool dead = false;
 
     float victoryTime;
-    float victoryWait = 10f;
+    float victoryWait = 5f;
     bool won = false;
 
     // Start is called before the first frame update
@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         if (won && Time.time > victoryTime + victoryWait) {
             SceneManager.LoadScene(0);
         }
+        print("HP " + currentHealth + "/" + maxHealth);
     }
 
     public void Win()

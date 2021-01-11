@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public float attackRange = 1f;
     public bool isFlipped = false;
 
-    public float harmInterval = 0.5f;
+    public float harmInterval = 0.2f;
     private float nextHarm = 0f;
 
     public int damage = 1;
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 				sr.color = c;
 			}
 
-			yield return new WaitForSeconds(.05f);
+			yield return new WaitForSeconds(.02f);
 
 			foreach (SpriteRenderer sr in srs)
 			{
@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
 				sr.color = c;
 			}
 
-			yield return new WaitForSeconds(.05f);
+			yield return new WaitForSeconds(.02f);
 		}
 	}
 }
