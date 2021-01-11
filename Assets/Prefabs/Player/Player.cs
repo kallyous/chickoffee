@@ -12,9 +12,19 @@ public class Player : MonoBehaviour
     public float harmInterval = 0.5f;
     private float nextHarmTime;
 
+    public AudioPlayer musicBackground;
+    public AudioPlayer musicDefeat;
+    public AudioPlayer musicVictory;
+    
+    Animator animator;
+    float deathTime;
+    float deathWait = 7f;
+    bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         if (healthBar)
         {
@@ -27,7 +37,11 @@ public class Player : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Die();
+            if (!dead) { Die(); }
+            else if (Time.time > deathTime + deathWait)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
@@ -47,7 +61,11 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene(0);
+        dead = true;
+        animator.SetBool("Dead", true);
+        musicBackground.Stop();
+        musicDefeat.Play();
+        deathTime = Time.time;
     }
 
     IEnumerator DamageAnimation()

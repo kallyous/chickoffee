@@ -10,7 +10,7 @@ public class Death_Zone : MonoBehaviour
 		Player player = hitInfo.GetComponent<Player>();
 		if (player != null)
 		{
-			player.Die();
+			player.TakeDamage(9999);
 		}
 	}
 }
